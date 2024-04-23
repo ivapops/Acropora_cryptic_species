@@ -2,8 +2,6 @@
 ### Pcangsd ###
 ###############
 
-setwd("/Users/uqipopo1/Documents/RRAP_Corals/Acropora_hyacinthus_2022/03_angsd/ECT_only/")
-
 # import bams used
 bamUse <-read.table("bamList_625_Ahya", header=FALSE, sep=",", stringsAsFactors=FALSE)
 
@@ -31,7 +29,7 @@ dat$col <- "black"
 library(RcppCNPy)
 
 # Reads in estimated covariance matrix
-cov <- as.matrix(read.table("./data/pca_outQ5_ECT_625_chrs_2.cov")) 
+cov <- as.matrix(read.table("./data/pca_outQ5_ECT_625_chrs.cov")) 
 
 dim(cov)
 
@@ -61,7 +59,7 @@ plot(e$vectors[,1:2],lwd=2,  xlab=paste0(c("PC1" , signif(e$values[1]/sum(e$valu
 # color by cluster 
 # "Group2" = "#00a1d5","Group3" = "#b24745","Group4" = "#df8f44","Group1" = "#374e55"
 
-# Ahya 565 assign group colors
+# Ahya 625 assign group colors
 dat[which((e$vectors[,1] > -0.03)), ]$col="#374e55"
 dat[which((e$vectors[,2] > 0.11)), ]$col="#00a1d5"
 dat[which((e$vectors[,2] < 0.11 & e$vectors[,2] > 0.05)), ]$col="#b24745"
