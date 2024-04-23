@@ -28,7 +28,6 @@ The following scripts are used to process raw fastq files to BAM files for whole
   - Map paired reads to the Acropora hyacinthus reference genome using the Burrow-Wheeler Aligner (Li & Durbin, 2009, version 0.7.17) and the MEM algorithm with default settings.
   - The resulting alignment SAM files were converted to indexed and sorted BAM files using Samtools v1.10 (Danecek et al., 2021)
   - Reference genome: `GCA_020536085.1_Ahyacinthus.chrsV1_genomic` (López-Nandam et al., 2023) available on NCBI: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_020536085.1/
-    
   - Requires a bwa index from the referenc genome
   - Requies a list of R1 clean (paired reads) fastq files
 
@@ -38,7 +37,6 @@ bwa index GCA_020536085.1_Ahyacinthus.chrsV1_genomic.fna
 
 # create list of fastq files
 ls *_R1_paired.fastq.gz > fastqClean
-
 ```
 
 5) `05_picard2bam-array.sh`
@@ -47,7 +45,6 @@ ls *_R1_paired.fastq.gz > fastqClean
 
 ```
 # check Read Groups
-
 module load samtools/1.13-gcc-10.3.0
 for FILENAME in *markedRG.bam; do
 samtools view -H ${FILENAME} | grep '^@RG'
