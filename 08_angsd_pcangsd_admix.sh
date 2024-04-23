@@ -1,14 +1,14 @@
 #!/bin/bash --login
-#SBATCH --job-name="angsd"      # job name
-#SBATCH --nodes=1               # use 1 node
-#SBATCH --ntasks-per-node=1     # use 1 for single and multi core jobs
-#SBATCH --cpus-per-task=4		# number of cores per job
-#SBATCH --mem=400G				# RAM per job given in megabytes (M), gigabytes (G), or terabytes (T)
-#SBATCH --time=300:00:00	# walltime
-#SBATCH --account=a_riginos	# group account name
-#SBATCH --partition=general	# queue name
-#SBATCH -o beagle_%A.o             # standard output
-#SBATCH -e beagle_%A.e	        # standard error
+#SBATCH --job-name="angsd"  
+#SBATCH --nodes=1        
+#SBATCH --ntasks-per-node=1    
+#SBATCH --cpus-per-task=4	
+#SBATCH --mem=400G				
+#SBATCH --time=300:00:00	
+#SBATCH --account=a_riginos
+#SBATCH --partition=general
+#SBATCH -o beagle_%A.o          
+#SBATCH -e beagle_%A.e	     
 
 # 1) ANGSD v0.934: create beagle file
 
