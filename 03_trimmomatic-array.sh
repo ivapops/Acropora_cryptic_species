@@ -1,15 +1,15 @@
 #!/bin/bash --login
-#SBATCH --job-name="trim"       # job name
-#SBATCH --nodes=1               # use 1 node
-#SBATCH --ntasks-per-node=1     # use 1 for single and multi core jobs
-#SBATCH --cpus-per-task=1		# number of cores per job
-#SBATCH --mem=80G				# RAM per job given in megabytes (M), gigabytes (G), or terabytes (T)
-#SBATCH --time=20:00:00			# walltime
-#SBATCH --account=a_riginos		# group account name
-#SBATCH --partition=general		# queue name
-#SBATCH --array=1-94        	# job array
-#SBATCH -e trim_%A_%a.e      	# standard error
+#SBATCH --job-name="trim"    
+#SBATCH --nodes=1             
+#SBATCH --ntasks-per-node=1     
+#SBATCH --cpus-per-task=1		
+#SBATCH --mem=80G			
+#SBATCH --time=20:00:00		
+#SBATCH --account=a_riginos	
+#SBATCH --partition=general	       	
+#SBATCH -e trim_%A_%a.e    
 #SBATCH -o trim_%A_%a.o
+#SBATCH --array=1-684 
 
 # text fille including fastq file names (R1 only)
 LIST=fastqList
