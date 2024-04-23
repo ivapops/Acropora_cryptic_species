@@ -1,6 +1,6 @@
 # Acropora_cryptic_species
 
-This repository contains scripts to process and analyse genomic data of Acropora hyacinthus on the GBR. Data and code support the results shown in:
+This repository contains scripts to process and analyse whole genome data of Acropora hyacinthus on the GBR. Data and code support the results shown in:
 
 Naugle, M. S., Denis, H., Mocellin, V. J., Laffy, P. W., Popovic, I., Bay, L. K., & Howells, E. J. (2024). Environmental, host, and symbiont drivers of heat tolerance in a species complex of reef-building corals. bioRxiv, 2024-01.
 
