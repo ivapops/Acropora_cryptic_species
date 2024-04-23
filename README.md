@@ -39,6 +39,7 @@ bwa index GCA_020536085.1_Ahyacinthus.chrsV1_genomic.fna
 ls *_R1_paired.fastq.gz > fastqClean
 ```
 
+
 5) `05_picard2bam-array.sh`
   - Assign read group information (required for variant calling)
   - Mark and remove duplicates using PICARD
@@ -50,6 +51,7 @@ for FILENAME in *markedRG.bam; do
 samtools view -H ${FILENAME} | grep '^@RG'
 done
 ```
+
 
 6) `06_extract-bam-unmapped-array.sh` [OPTIONAL]
   - Extract unmapped reads from BAM files
