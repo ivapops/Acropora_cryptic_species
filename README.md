@@ -17,7 +17,7 @@ The following scripts are used to process raw fastq files to BAM files for whole
   - Visual comparison and collective summary of FASTQC reports. Multiqc has various table output options for fastq statistics, which are useful for plotting.
 
 3) **trimmomatic-array.sh**
-  - Basic quality filtering of FASTQC files to remove poor-quality reads and adapter contamination
+  - Basic quality filtering of FASTQC files with Trimmomatic (version 0.39) to remove poor-quality reads and adapter contamination
   - Requies list of fastq files (R1 only)
   - Keep bases with phred-score quality > 20 in sliding window of 4 bp (average)
   - Remove adapter sequences in user specified file (**adapters.txt**) with recommended ILLUMINACLIP parameters
@@ -25,8 +25,10 @@ The following scripts are used to process raw fastq files to BAM files for whole
   - keepBothReads option = True (retains paired reads with adapter read-through)
 
 4) **bwa2samtools-array.sh**
-  - Map paired reads to the Acropora hyacinthus reference genome `GCA_020536085.1_Ahyacinthus.chrsV1_genomic` available on NCBI:
-    https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_020536085.1/
+  - Map paired reads to the Acropora hyacinthus reference genome using the Burrow-Wheeler Aligner (Li & Durbin, 2009, version 0.7.17) and the MEM algorithm with default settings.
+  - The resulting alignment SAM files were converted to indexed and sorted BAM files using Samtools v1.10 (Danecek et al., 2021)
+  - Reference genome: `GCA_020536085.1_Ahyacinthus.chrsV1_genomic` (López-Nandam et al., 2023) available on NCBI: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_020536085.1/
+    
   - Requires a bwa index from the referenc genome
   - Requies a list of R1 clean (paired reads) fastq files
 
@@ -63,5 +65,11 @@ done
 Additionals Scripts
    - **count-reads.sh** : count reads in a fastq file
    - **samtools-index.sh** : create index file (.bai) for each BAM file
+
+# Genomic assignment of 565 corals to divergent species clusters
+
+After removing individuals with < 80% of mapped reads and technical replicates, dowstream analyses were performed on 565 samples (for which we had genomic and phenotype data) and 60 colonies collected during a natural bleaching event (total=625).
+
+Genomic data was visualized using ANGSD version 0.934 (Korneliussen et al., 2014) to identify genetically distinct host clusters. We identified polymorphic sites and estimated genotype likelihoods to account for statistical uncertainty associated with sequencing errors or missing genotypes. Polymorphic sites were filtered as: mapping quality > 30, base quality > 30, coverage ≥ 3 reads in at least 95% of individuals, and sites mapping to 14 assembled chromosomes. We called major and minor alleles directly from the genotype likelihoods assuming biallelic sites and considered only polymorphic sites with a likelihood ratio test p-value <0.000001. To evaluate population genetic structure, we extracted an individual covariance matrix with PCAngsd (Meisner & Albrechtsen, 2018) applying a 0.05 minor allele frequency (MAF) threshold. We computed eigenvectors and eigenvalues in R and performed a Principal Components Analysis (PCA). We also performed Bayesian hierarchical clustering admixture analyses in PCAngsd using the ‘admix’ option to estimate individual ancestry proportions assuming 2-5 ancestral populations (K genetic clusters) and applying a MAF threshold of 0.05 (Meisner & Albrechtsen, 2018).
  
 
