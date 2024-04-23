@@ -77,7 +77,7 @@ Additionals Scripts
     - PCAngsd (Meisner & Albrechtsen, 2018) used to estimate (i) an individual covariance matrix and (ii) individual ancestry proportions assuming 2-5 ancestral populations (using the ‘admix’ option) and applying a 0.05 minor allele frequency threshold.
    
 # Plot PCA and Admixture (Figure 3)
-9) `explore_pca_admix.R`
+9) `09_explore_pca_admix.R`
  - Computed eigenvectors and eigenvalues in R and perform a Principal Components Analysis.
  - Plot PCA and admixture results
  
