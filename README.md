@@ -1,6 +1,6 @@
 # Acropora_cryptic_species
 
-This repository contains scripts to process and analyse genomic data of Acropora hyacinthus on the GBR. Data and code support the results show in:
+This repository contains scripts to process and analyse genomic data of Acropora hyacinthus on the GBR. Data and code support the results shown in:
 
 Naugle, M. S., Denis, H., Mocellin, V. J., Laffy, P. W., Popovic, I., Bay, L. K., & Howells, E. J. (2024). Environmental, host, and symbiont drivers of heat tolerance in a species complex of reef-building corals. bioRxiv, 2024-01.
 
@@ -58,7 +58,7 @@ done
   - Unmapped reads will contain all reads not mapped to the reference genome, including symbionts and microbes
 
 7) `07_samtools_bamStats.sh`
-  - Examine bam statistics (e.g., read counts, primary and secondary mapping, coverage) using samtools
+  - Examine BAM statistics (e.g., read counts, primary and secondary mapping, coverage) using samtools
   - BAMs can also be individually examined using the Integrative Genomics Viewer 
 
 Additionals Scripts
@@ -70,9 +70,9 @@ Additionals Scripts
 - After removing individuals with < 80% of mapped reads and technical replicates, dowstream analyses were performed on 565 samples (for which we had genomic and phenotype data) and 60 colonies collected during a natural bleaching event (total=625).
 
 8) `08_angsd_pcangsd_admix.sh`
-    - Generate genotype likelihood file in beagle format directly from bam files using ANGSD version 0.934 (Korneliussen et al., 2014)
+    - Generate genotype likelihood file in beagle format directly from BAM files using ANGSD version 0.934 (Korneliussen et al., 2014)
     - Retains sites with mapping quality > 30, base quality > 30, coverage ≥ 3 reads in at least 95% of individuals, and sites mapping to 14 assembled chromosomes. We called major and minor alleles directly from the genotype likelihoods assuming biallelic sites and considered only polymorphic sites with a likelihood ratio test p-value <0.000001. 
-    - Requires a list of bam files. Refer to `bamList_625_Ahya`
+    - Requires a list of BAM files. Refer to `bamList_625_Ahya`
       
     - PCAngsd (Meisner & Albrechtsen, 2018) used to estimate (i) an individual covariance matrix and (ii) individual ancestry proportions assuming 2-5 ancestral populations (using the ‘admix’ option) and applying a 0.05 minor allele frequency threshold.
    
