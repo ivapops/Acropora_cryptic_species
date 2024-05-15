@@ -65,7 +65,7 @@ Additionals Scripts
    - `count-reads.sh` : count reads in a fastq file
    - `samtools-index.sh` : create index file (.bai) for each BAM file
 
-# Genomic assignment of 565 corals to divergent species clusters: ANGSD
+# Genomic assignment to divergent species clusters: ANGSD
 
 - After removing individuals with < 80% of primary mapped reads and technical replicates, dowstream analyses were performed on 565 samples (for which we had genomic and phenotype data) and 60 colonies collected during a natural bleaching event (total=625).
 
