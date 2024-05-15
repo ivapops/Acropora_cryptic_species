@@ -13,8 +13,8 @@
 
 # text fille including fastq file names (R1 only)
 LIST=fastqList
-INDIR=/QRISdata/Q4020/Iva_Popovic/genomic_datasets/raw_data/all_fastq
-OUTDIR=/scratch/project/rrap_ahya/analysis/trimmomatic/fastq_clean
+INDIR=all_fastq
+OUTDIR=fastq_clean
 
 # file name variable is associated ARRAY index
 FILENAME=`cat ${LIST} | tail -n +${SLURM_ARRAY_TASK_ID} | head -1`
