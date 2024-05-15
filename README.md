@@ -18,7 +18,7 @@ The following scripts are used to process raw fastq files to BAM files for whole
 
 3) `03_trimmomatic-array.sh`
   - Basic quality filtering of FASTQC files with Trimmomatic (version 0.39) to remove poor-quality reads and adapter contamination
-  - Requies list of fastq files (R1 only)
+  - Requies list of fastq files (R1 files only)
   - Keep bases with phred-score quality > 20 in sliding window of 4 bp (average)
   - Remove adapter sequences in user specified file (**adapters.txt**) with recommended ILLUMINACLIP parameters
   - Remove reads with length < 50bp following trimming
@@ -28,7 +28,7 @@ The following scripts are used to process raw fastq files to BAM files for whole
   - Map paired reads to the Acropora hyacinthus reference genome using the Burrow-Wheeler Aligner (Li & Durbin, 2009, version 0.7.17) and the MEM algorithm with default settings.
   - The resulting alignment SAM files were converted to indexed and sorted BAM files using Samtools v1.10 (Danecek et al., 2021)
   - Reference genome: `GCA_020536085.1_Ahyacinthus.chrsV1_genomic` (López-Nandam et al., 2023) available on NCBI: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_020536085.1/
-  - Requires a bwa index from the referenc genome
+  - Requires a bwa index of the reference genome
   - Requies a list of R1 clean (paired reads) fastq files
 
 ```
@@ -55,11 +55,11 @@ done
 
 6) `06_extract-bam-unmapped-array.sh` [OPTIONAL]
   - Extract unmapped reads from BAM files
-  - Unmapped reads will contain all reads not mapped to the reference genome, including symbionts and microbes
+  - Unmapped reads contain all reads not mapped to the reference genome, including symbionts and microbes
 
 7) `07_samtools_bamStats.sh`
   - Examine BAM statistics (e.g., read counts, primary and secondary mapping, coverage) using samtools
-  - BAMs can also be individually examined using the Integrative Genomics Viewer 
+  - BAM files can also be individually examined using the Integrative Genomics Viewer 
 
 Additionals Scripts
    - `count-reads.sh` : count reads in a fastq file
@@ -67,18 +67,18 @@ Additionals Scripts
 
 # Genomic assignment of 565 corals to divergent species clusters: ANGSD
 
-- After removing individuals with < 80% of mapped reads and technical replicates, dowstream analyses were performed on 565 samples (for which we had genomic and phenotype data) and 60 colonies collected during a natural bleaching event (total=625).
+- After removing individuals with < 80% of primary mapped reads and technical replicates, dowstream analyses were performed on 565 samples (for which we had genomic and phenotype data) and 60 colonies collected during a natural bleaching event (total=625).
 
 8) `08_angsd_pcangsd_admix.sh`
     - Generate genotype likelihood file in beagle format directly from BAM files using ANGSD version 0.934 (Korneliussen et al., 2014)
-    - Retains sites with mapping quality > 30, base quality > 30, coverage ≥ 3 reads in at least 95% of individuals, and sites mapping to 14 assembled chromosomes. We called major and minor alleles directly from the genotype likelihoods assuming biallelic sites and considered only polymorphic sites with a likelihood ratio test p-value <0.000001. 
-    - Requires a list of BAM files. Refer to `bamList_625_Ahya`
+    - Retains sites with mapping quality > 30, base quality > 30, coverage ≥ 3 reads in at least 95% of individuals, and sites mapping to 14 assembled chromosomes. We called major and minor alleles directly from genotype likelihoods assuming biallelic sites and considered only polymorphic sites with a likelihood ratio test p-value <0.000001. 
+    - Requires a list of BAM files. Refer to `bamList_625_Ahya` and `chrs_only`
       
-    - PCAngsd (Meisner & Albrechtsen, 2018) used to estimate (i) an individual covariance matrix and (ii) individual ancestry proportions assuming 2-5 ancestral populations (using the ‘admix’ option) and applying a 0.05 minor allele frequency threshold.
+    - PCAngsd (Meisner & Albrechtsen, 2018) was used to estimate (i) an individual covariance matrix and (ii) individual ancestry proportions assuming 2-5 ancestral populations (using the ‘admix’ option) and applying a 0.05 minor allele frequency threshold.
    
 # Plot PCA and ancestry proportions (Figure 3)
 9) `09_explore_pca_admix.R`
- - Computed eigenvectors and eigenvalues in R and perform a Principal Components Analysis.
+ - Compute eigenvectors and eigenvalues in R and perform a Principal Components Analysis.
  - Plot PCA and admixture results
  
 
