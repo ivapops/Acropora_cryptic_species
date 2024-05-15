@@ -11,9 +11,9 @@
 #SBATCH -e bwa_%A_%a.e  
 #SBATCH --array=1-684        
 
-REF=/scratch/project/rrap_ahya/genome/GCA_020536085.1_Ahyacinthus.chrsV1/GCA_020536085.1_Ahyacinthus.chrsV1_genomic.fna
-INDIR=/scratch/project/rrap_ahya/analysis/bwa/markedRG_bamUSE
-OUTDIR=/scratch/project/rrap_ahya/analysis/bwa/unmapped_bamUSE
+REF=/genome/GCA_020536085.1_Ahyacinthus.chrsV1/GCA_020536085.1_Ahyacinthus.chrsV1_genomic.fna
+INDIR=/analysis/bwa/markedRG_bamUSE
+OUTDIR=/analysis/bwa/unmapped_bamUSE
 
 # Pull in all the files within directory. This will include path to file!
 FILES=($(ls -1 ${INDIR}/RRAP-ECT01*.bam))
