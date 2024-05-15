@@ -11,10 +11,10 @@
 #SBATCH -e bwa_%A_%a.e      
 #SBATCH --array=1-684    
 
-LIST=/analysis/lists/fastqClean
+LIST=/analysis/bwa/fastqClean
 INDIR=/analysis/trimmomatic/fastq_cleanUSE
 OUTDIR=/analysis/bwa/markedRG_bamUSE
-REF=/scratch/project/rrap_ahya/genome/GCA_020536085.1_Ahyacinthus.chrsV1/GCA_020536085.1_Ahyacinthus.chrsV1_genomic.fna
+REF=/genome/GCA_020536085.1_Ahyacinthus.chrsV1/GCA_020536085.1_Ahyacinthus.chrsV1_genomic.fna
 
 # Remember to first make bwa index from reference genome!
 # bwa index GCA_020536085.1_Ahyacinthus.chrsV1_genomic.fna
