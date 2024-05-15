@@ -14,13 +14,13 @@
 module load anaconda3/2022.05
 source activate picard
 
-LIST=/scratch/project/rrap_ahya/analysis/lists/bamList
+LIST=/analysis/lists/bamList
 
 # Name of sample e.g., RRAP-ECO3-2021-Ahya-CBHE-218_L3
 
-INDIR=/scratch/project/rrap_ahya/analysis/bwa/markedRG_bamUSE_2023
-OUTDIR=/scratch/project/rrap_ahya/analysis/bwa/markedRG_bamUSE_2023
-REF=/scratch/project/rrap_ahya/genome/GCA_020536085.1_Ahyacinthus.chrsV1/GCA_020536085.1_Ahyacinthus.chrsV1_genomic.fna
+INDIR=/analysis/bwa/markedRG_bamUSE_2023
+OUTDIR=/analysis/bwa/markedRG_bamUSE_2023
+REF=/genome/GCA_020536085.1_Ahyacinthus.chrsV1/GCA_020536085.1_Ahyacinthus.chrsV1_genomic.fna
 
 # file name variable is associated Array index
 FILENAME=`cat ${LIST} | tail -n +${SLURM_ARRAY_TASK_ID} | head -1`
