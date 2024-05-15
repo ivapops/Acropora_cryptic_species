@@ -14,14 +14,14 @@
 
 module load htslib/1.12-gcc-10.3.0
 
-export PATH="/scratch/project/rrap_ahya/bunya/software/angsd:$PATH"
-export PATH="/scratch/project/rrap_ahya/bunya/software/angsd/misc/$PATH"
+export PATH="/software/angsd:$PATH"
+export PATH="/software/angsd/misc/$PATH"
 
-LIST=/scratch/project/rrap_ahya/analysis/angsd/ECT_only/bamList_625_Ahya
+LIST=/analysis/angsd/ECT_only/bamList_625_Ahya
 NAME=ECT_625
 
-REF=/scratch/project/rrap_ahya/genome/GCA_020536085.1_Ahyacinthus.chrsV1/GCA_020536085.1_Ahyacinthus.chrsV1_genomic.fna
-FAI=/scratch/project/rrap_ahya/genome/GCA_020536085.1_Ahyacinthus.chrsV1/GCA_020536085.1_Ahyacinthus.chrsV1_genomic.fna.fai
+REF=/genome/GCA_020536085.1_Ahyacinthus.chrsV1/GCA_020536085.1_Ahyacinthus.chrsV1_genomic.fna
+FAI=/genome/GCA_020536085.1_Ahyacinthus.chrsV1/GCA_020536085.1_Ahyacinthus.chrsV1_genomic.fna.fai
 
 # < 5% missing individuals
 Q5="-minMapQ 30 -minQ 30 -doMajorMinor 1 -doMaf 1 -SNP_pval 1e-6 -minInd 595 -doCounts 1 -dumpCounts 2 -setMinDepthInd 3"
