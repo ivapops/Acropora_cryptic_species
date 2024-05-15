@@ -12,9 +12,9 @@
 #SBATCH --array=1-684 
 
 # text fille including fastq file names (R1 only)
-LIST=fastqList
-INDIR=all_fastq
-OUTDIR=fastq_clean
+LIST=/analysis/trimmomatic/fastqList
+INDIR=/analysis/trimmomatic/all_fastq
+OUTDIR=/analysis/trimmomatic/fastq_clean
 
 # file name variable is associated ARRAY index
 FILENAME=`cat ${LIST} | tail -n +${SLURM_ARRAY_TASK_ID} | head -1`
