@@ -13,8 +13,8 @@
 
 module load fastqc/0.11.9-java-11 
 
-LIST=fastqClean_ECT
-INDIR=fastq_cleanUSE
+LIST=/analysis/fastqc/fastqClean_ECT
+INDIR=/analysis/fastqc/fastq_cleanUSE
 
 # file name variable is associated ARRAY index
 FILENAME=`cat ${LIST} | tail -n +${SLURM_ARRAY_TASK_ID} | head -1`
