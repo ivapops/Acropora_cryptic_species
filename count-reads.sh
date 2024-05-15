@@ -11,8 +11,8 @@
 #SBATCH -e reads_%A_%a.e	   
 #SBATCH --array=1-684
 
-LIST=/scratch/project/rrap_ahya/analysis/fastqc/ECT/fastq_cleanList
-INDIR=/QRISdata/Q4020/Iva_Popovic/genomic_datasets/fastq_cleanUSE
+LIST=/analysis/fastqc/ECT/fastq_cleanList
+INDIR=/genomic_datasets/fastq_cleanUSE
 
 FILENAME=`cat ${LIST} | tail -n +${SLURM_ARRAY_TASK_ID} | head -1`
 
