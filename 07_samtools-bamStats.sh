@@ -14,8 +14,8 @@
 module load samtools/1.13-gcc-10.3.0
 
 LIST=RRAP-list
-INDIR=/scratch/project/rrap_ahya/analysis/bwa/markedRG_bamUSE
-OUTDIR=/scratch/project/rrap_ahya/analysis/bwa/bam_stats
+INDIR=/analysis/bwa/markedRG_bamUSE
+OUTDIR=/analysis/bwa/bam_stats
 
 # file name variable is associated Array index
 FILENAME=`cat ${LIST} | tail -n +${SLURM_ARRAY_TASK_ID} | head -1`
